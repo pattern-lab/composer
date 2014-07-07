@@ -1,0 +1,23 @@
+{
+	"name": "pattern-lab/unified-asset-installer",
+	"description": "Extensions installer for Pattern Lab",
+	"type": "composer-installer",
+	"keywords": ["assets", "installer", "plugins", "pattern lab"],
+	"homepage": "http://patternlab.io",
+	"license": "MIT",
+	"autoload": {
+		"psr-0": { 
+			"PatternLab\\Composer": "src/"
+		}
+	},
+	"extra": {
+		"class": "\\PatternLab\\Composer\\UnifiedAssetInstaller"
+	},
+	"require": {
+		"composer-plugin-api": "1.0.0"
+	},
+	"require-dev": {
+		"phpunit/phpunit":   "~3.7",
+		"composer/composer": "~1.0@dev"
+	}
+}
