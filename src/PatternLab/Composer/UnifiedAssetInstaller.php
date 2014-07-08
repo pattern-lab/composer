@@ -35,7 +35,9 @@ class UnifiedAssetInstaller extends LibraryInstaller {
 	* Determines which composer types are supported
 	*/
 	public function supports($packageType) {
-		return (bool) ('patternlab-plugin' === $packageType);
+		$cleanPackageType  = str_replace("patternlab-","",$packageType);
+		$cleanPackageTypes = array("mustachehelper", "patternengine", "plugin", "starterkit", "styleguidekit");
+		return (bool) (in_array($cleanPackageType,$cleanPackageTypes));
 	}
 	
 }
