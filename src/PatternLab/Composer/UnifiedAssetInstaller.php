@@ -25,17 +25,9 @@ use \Composer\Package\PackageInterface;
 class UnifiedAssetInstaller extends LibraryInstaller {
 	
 	/**
-	* Set-up $this->vendorDir
-	*/
-	public function __construct() {
-		parent::__construct();
-	}
-	
-	/**
 	* Determines the install path for all of the types
 	*/
 	public function getInstallPath(PackageInterface $package) {
-		print dirname($this->vendorDir);
 		return "plugins/".$package->getPrettyName();
 	}
 	
