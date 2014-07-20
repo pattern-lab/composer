@@ -28,7 +28,23 @@ class UnifiedAssetInstaller extends LibraryInstaller {
 	* Determines the install path for all of the types
 	*/
 	public function getInstallPath(PackageInterface $package) {
-		return "plugins/".$package->getPrettyName();
+		
+		return $this->getPackageDir().DIRECTORY_SEPARATOR.$package->getName();
+		
+	}
+	
+	/**
+	 * Returns the package directory based on Pattern Lab's config
+	 *
+	 * @return string a path relative to the root of the composer.json that holds the packages
+	 */
+	protected function getPackageDir() {
+		
+		$baseDir    = realpath(getcwd()).DIRECTORY_SEPARATOR;
+		$configDir  = (is_dir($baseDir."_config")) ? "_config" : "config";
+		$options    = parse_ini_file($baseDir.$configDir.DIRECTORY_SEPARATOR."config.ini");
+		return $options["packagesDir"];
+		
 	}
 	
 	/**
@@ -37,7 +53,7 @@ class UnifiedAssetInstaller extends LibraryInstaller {
 	public function supports($packageType) {
 		if (strpos($packageType,"patternlab-") !== false) {
 			$cleanPackageType  = str_replace("patternlab-","",$packageType);
-			$cleanPackageTypes = array("mustachehelper", "patternengine", "plugin", "starterkit", "styleguidekit", "styleguidetheme");
+			$cleanPackageTypes = array("mustachehelper", "patternengine", "patternkit", "plugin", "starterkit", "styleguidekit", "styleguidetheme");
 			return (bool) (in_array($cleanPackageType,$cleanPackageTypes));
 		}
 	}
