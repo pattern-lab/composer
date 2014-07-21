@@ -1,6 +1,6 @@
 {
 	"name":             "pattern-lab/unified-asset-installer",
-	"description":      "Extensions installer for Pattern Lab",
+	"description":      "Manages the installation of Pattern Lab-related assets like StarterKits, Pattern Engines, and Plugins.",
 	"keywords":         ["assets", "installer", "plugins", "pattern lab"],
 	"homepage":         "http://patternlab.io",
 	"license":          "MIT",
