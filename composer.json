@@ -14,9 +14,9 @@
 		}
 	],
 	"support": {
-		"issues":         "https://github.com/pattern-lab/composer/issues",
+		"issues":         "https://github.com/pattern-lab/unified-asset-installer/issues",
 		"wiki":           "http://patternlab.io/docs/",
-		"source":         "https://github.com/pattern-lab/composer/releases"
+		"source":         "https://github.com/pattern-lab/unified-asset-installer/releases"
 	},
 	"autoload": {
 		"psr-0": { 
