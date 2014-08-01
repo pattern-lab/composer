@@ -53,7 +53,7 @@ class UnifiedAssetInstaller extends LibraryInstaller {
 	public function supports($packageType) {
 		if (strpos($packageType,"patternlab-") !== false) {
 			$cleanPackageType  = str_replace("patternlab-","",$packageType);
-			$cleanPackageTypes = array("mustachehelper", "patternengine", "patternkit", "plugin", "starterkit", "styleguidekit", "styleguidetheme");
+			$cleanPackageTypes = array("command", "datakit", "mustachehelper", "patternengine", "patternkit", "plugin", "starterkit", "styleguidekit", "styleguidetheme");
 			return (bool) (in_array($cleanPackageType,$cleanPackageTypes));
 		}
 	}
