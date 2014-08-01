@@ -24,10 +24,7 @@
 		}
 	},
 	"extra": {
-		"class": "\\PatternLab\\Composer\\UnifiedAssetInstaller",
-		"branch-alias": {
-			"dev-master": "dev-dev"
-		}
+		"class": "\\PatternLab\\Composer\\UnifiedAssetInstaller"
 	},
 	"require": {
 		"php": ">=5.3.6",
