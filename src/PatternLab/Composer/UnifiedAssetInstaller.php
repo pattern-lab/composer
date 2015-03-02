@@ -42,8 +42,18 @@ class UnifiedAssetInstaller extends LibraryInstaller {
 		
 		$baseDir    = realpath(getcwd()).DIRECTORY_SEPARATOR;
 		$configDir  = (is_dir($baseDir."_config")) ? "_config" : "config";
-		$options    = parse_ini_file($baseDir.$configDir.DIRECTORY_SEPARATOR."config.ini");
-		return $options["packagesDir"];
+		$configFile = $baseDir.$configDir.DIRECTORY_SEPARATOR."config.yml";
+		
+		if (file_exists($configFile)) {
+			$configData = file_get_contents($configFile);
+			preg_match("/packagesDir:([ ]+)?([\"'])?([A-z0-9-]{1,})([\"'])?([ ]+)?/",$configData,$matches);
+			$packageDir = (isset($matches[3])) ? $matches[3] : "packages"; // provide an expected default just in case
+		} else {
+			print "Config not found in <path>".$configFile."</path>...";
+			exit;
+		}
+		
+		return $packageDir;
 		
 	}
 	
@@ -53,7 +63,7 @@ class UnifiedAssetInstaller extends LibraryInstaller {
 	public function supports($packageType) {
 		if (strpos($packageType,"patternlab-") !== false) {
 			$cleanPackageType  = str_replace("patternlab-","",$packageType);
-			$cleanPackageTypes = array("command", "datakit", "mustachehelper", "patternengine", "patternkit", "plugin", "starterkit", "styleguidekit", "styleguidetheme");
+			$cleanPackageTypes = array("command", "datakit", "mustachehelper", "twighelper", "patternengine", "patternkit", "plugin", "starterkit", "styleguidekit", "styleguidetheme");
 			return (bool) (in_array($cleanPackageType,$cleanPackageTypes));
 		}
 	}
