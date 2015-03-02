@@ -29,6 +29,6 @@
 	"require": {
 		"php": ">=5.3.6",
 		"composer-plugin-api": "1.0.0",
-		"pattern-lab/core": "~0.5"
+		"pattern-lab/core": "dev-dev"
 	}
 }
