@@ -66,6 +66,7 @@ class UnifiedAssetInstaller extends LibraryInstaller {
 			$cleanPackageTypes = array("command", "datakit", "mustachehelper", "twighelper", "patternengine", "patternkit", "plugin", "starterkit", "styleguidekit", "styleguidetheme");
 			return (bool) (in_array($cleanPackageType,$cleanPackageTypes));
 		}
+		return false;
 	}
 	
 }
