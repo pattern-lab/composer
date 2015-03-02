@@ -49,8 +49,7 @@ class UnifiedAssetInstaller extends LibraryInstaller {
 			preg_match("/packagesDir:([ ]+)?([\"'])?([A-z0-9-]{1,})([\"'])?([ ]+)?/",$configData,$matches);
 			$packageDir = (isset($matches[3])) ? $matches[3] : "packages"; // provide an expected default just in case
 		} else {
-			print "Config not found in <path>".$configFile."</path>...";
-			exit;
+			$packageDir = "vendor";
 		}
 		
 		return $packageDir;
